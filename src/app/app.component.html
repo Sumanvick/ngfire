@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<!-- <div style="text-align:center">
   <h1>
     Welcome to {{title}}!
   </h1>
@@ -16,5 +16,27 @@
   <li>
     <h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>
   </li>
-</ul>
+</ul> -->
+<!-- <ul>
+  <li class="text" *ngFor="let item of items | async">
+    {{item.name}}
+    <button (click)="deleteItem(item)">Delete</button>
+  </li>
+</ul> -->
+<div>
+  <md-card class="item-card" *ngFor="let item of items | async">
+    <md-card-content>
+      <p>
+        {{item.name}}
+      </p>
+    </md-card-content>
+    <md-card-actions>
+      <!-- <button md-button>Update</button> -->
+      <button md-button (click)="deleteItem(item)">Delete</button>
+    </md-card-actions>
+  </md-card>
+  <br>
+</div>
 
+<input #nameBox type="text" (keyup.enter)="addNewItem(nameBox)">
+<button (click)="addNewItem(nameBox)">Add</button>
