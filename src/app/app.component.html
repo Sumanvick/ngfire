@@ -1,25 +1,5 @@
-<div class="col-col">
-  <md-card class="item-card" *ngFor="let item of items | async">
-    <md-card-content>
-      <p>
-        {{item.name}}
-        &nbsp;&nbsp;&nbsp;
-        votes: {{item.value}}
-      </p>
-    </md-card-content>
-    <md-card-actions>
-      <!-- <button md-button>Update</button> -->
-      <button md-button (click)="poleItem(item)">Vote</button>
-      <button md-button (click)="deleteItem(item)">Delete</button>
-    </md-card-actions>
-  </md-card>
-  <br>
-  <input #nameBox type="text" (keyup.enter)="addNewItem(nameBox)">
-  <button (click)="addNewItem(nameBox)">Add</button>
-</div>
-  <div class="col-col">
+<!-- <div class="col-col">
       <chart [options]="options"
       (load)="saveInstance($event.context)"></chart>
-  <!-- <simple-chart-example></simple-chart-example> -->
-  <!-- <simple-chart-example [data]="chartData"></simple-chart-example> -->
-</div>
+  </div> -->
+  <router-outlet></router-outlet>

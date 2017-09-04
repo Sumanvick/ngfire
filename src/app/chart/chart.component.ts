@@ -2,21 +2,20 @@ import { Component } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    selector: 'pole-chart',
+    templateUrl: './chart.component.html',
+    styleUrls: ['./chart.component.css']
 })
-export class AppComponent {
-    title = 'app';
+export class ChartComponent {
+    // title = 'app';
     items: FirebaseListObservable<any[]>;
     chart: any;
     options: Object;
     addValue: any;
     chartData: Array<Object>;
     itemsRef;
-    constructor(private db: AngularFireDatabase) {}
-    /*     this.items = db.list('/items');
-        this.showAllItems();
+    constructor(private db: AngularFireDatabase) {
+        this.items = db.list('/items');
         this.itemsRef = db.database.ref('/items');
         this.itemsRef.on('child_added', (data) => {
             this.addChartPoint(data);
@@ -35,7 +34,7 @@ export class AppComponent {
                 type: 'pie'
             },
             title: {
-                text: 'Most favourite browser'
+                text: 'Pole Report'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -60,22 +59,6 @@ export class AppComponent {
             }]
         };
     }
-
-    addNewItem(nameBox): void {
-        const item = nameBox.value
-        this.items.push({
-            name: item,
-            value: 0
-        })
-        nameBox.value = ""
-    }
-    poleItem(item: any): void {
-        this.db.object('/items/' + item.$key)
-        .update({ value: (item.value + 1)});
-    }
-    deleteItem(item: any): void {
-        this.db.object('/items/' + item.$key).remove();
-    }
     saveInstance(chartInstance) {
         this.chart = chartInstance;
     }
@@ -95,5 +78,5 @@ export class AppComponent {
     deleteChartPoint(data){
         const index = this.chart.series[0].data.findIndex(x => x.name==data.val().name);
         this.chart.series[0].removePoint(index);
-    } */
+    }
 }

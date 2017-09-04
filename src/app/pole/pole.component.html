@@ -1,0 +1,19 @@
+<h1>{{title}} page</h1>
+<div class="col-col">
+  <md-card class="item-card" *ngFor="let item of items | async">
+    <md-card-content>
+      <p>
+        {{item.name}}
+        &nbsp;&nbsp;&nbsp;
+        votes: {{item.value}}
+      </p>
+    </md-card-content>
+    <md-card-actions>
+      <button md-button (click)="poleItem(item)">Vote</button>
+      <button md-button (click)="deleteItem(item)">Delete</button>
+    </md-card-actions>
+  </md-card>
+  <br>
+  <input #nameBox type="text" (keyup.enter)="addNewItem(nameBox)">
+  <button (click)="addNewItem(nameBox)">Add</button>
+</div>
