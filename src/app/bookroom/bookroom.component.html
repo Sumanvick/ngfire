@@ -1,0 +1,13 @@
+<!-- <ul class="heroes">
+  <li *ngFor="let slot of timeSlots" (click)="addNewSlot(slot)">
+    <span class="badge">{{slot.id}}</span> {{slot.timeSlot}}
+  </li>
+</ul> -->
+<ul class="heroes">
+  <li *ngFor="let slot of timeSlots | ObjNgFor" [class.selected]="slot.status == 1" (click)="addNewSlot(slot)">
+    <span class="badge">{{slot.id}}</span> {{slot.timeSlot}}
+  </li>
+</ul>
+<!-- <ul class="heroes">
+  <div *ngFor="let slot of letters"> Suman key</div>
+</ul> -->

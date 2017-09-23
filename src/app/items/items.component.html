@@ -1,0 +1,25 @@
+<div class="parent">
+  <div class="make-center">
+    <form class="example-form">
+      <md-input-container class="example-full-width">
+        <input #inputText mdInput placeholder="Search items" value="" (keyup)="searchWithQuery(inputText.value)">
+      </md-input-container>
+    </form>
+    <div class="card-paren">
+      <div *ngFor="let item of items" class="card-info">
+        <md-card>
+          <md-card-title>{{item._source.journal}}</md-card-title>
+          <md-card-subtitle>{{item._source.title}}</md-card-subtitle>
+          <md-card-content>
+            <span *ngFor="let author of item._source.authors">
+              {{author.firstname}} {{author.lastname}},
+            </span>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+    <isotope>
+        <isotope-brick class="brick" *ngFor="let brick of bricks">{{brick.title}}</isotope-brick>
+      </isotope>
+  </div>
+</div>

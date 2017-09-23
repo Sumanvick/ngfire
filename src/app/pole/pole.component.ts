@@ -7,18 +7,18 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
     styleUrls: ['./pole.component.css']
 })
 export class PoleComponent {
-    title = "Pole";
+    title = 'Pole';
     items: FirebaseListObservable<any[]>;
     constructor(private db: AngularFireDatabase) {
         this.items = db.list('/items');
     }
     addNewItem(nameBox): void {
-        const item = nameBox.value
+        const item = nameBox.value;
         this.items.push({
             name: item,
             value: 0
-        })
-        nameBox.value = ""
+        });
+        nameBox.value = '';
     }
     poleItem(item: any): void {
         this.db.object('/items/' + item.$key)
